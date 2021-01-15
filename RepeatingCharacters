@@ -1,3 +1,8 @@
+/*
+Create a program that tracks repeating characters and displays the one that repeats the most, if multiple characters have the same value, print the first where most occurences appeared
+*/
+
+
 public static void main(String[] args) {
 	ArrayList<Integer> arraylist = new ArrayList<Integer>();
 	ArrayList<String> repeatingList=new ArrayList<String>();
