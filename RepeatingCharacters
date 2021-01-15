@@ -1,0 +1,28 @@
+public static void main(String[] args) {
+	ArrayList<Integer> arraylist = new ArrayList<Integer>();
+	ArrayList<String> repeatingList=new ArrayList<String>();
+	String x="HelloWorld999";
+	char string[]=x.toCharArray();
+	int count;
+	for(int i=0;i<string.length;i++) {
+		count=1;
+		for(int j=i+1;j<string.length;j++) {
+			if(string[i]==string[j] && string[i]!=' ') {
+				count++;
+				string[j]='0';
+			}
+		}
+		if(count>1 && string[i]!='0') {
+			arraylist.add(count);
+			repeatingList.add(Character.toString(string[i])+count);
+			Collections.sort(arraylist, Collections.reverseOrder());
+		}
+	}
+    for(int i=0;i<repeatingList.size();i++) {
+      if(arraylist.get(0)==Character.getNumericValue(repeatingList.get(i).charAt(1))) {
+        System.out.println(repeatingList.get(i).charAt(0));
+        break;
+      }
+    }
+  }
+}
