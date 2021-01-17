@@ -1,0 +1,39 @@
+	/*
+  Find repeating words and numbers and how many times they do. Sort from biggest to smallest, do not change position if same occurence.
+  
+  */
+  
+  
+  public static void main(String[] args) {
+		String x="basdb asdsaq asdqe asdqe asdqe asds'a qeqw. asdsad qwewas .dad w asdas . asd 99  99 asdsaq qeqw qeqw qeqw";
+		x=x.toLowerCase();
+		ArrayList<String> words = new ArrayList<String>();
+		String[] string = x.split("\\W+");
+		int count;
+		for(int i=0;i<string.length;i++) {
+			count=1;
+			for(int j=i+1;j<string.length;j++) {
+				if (string[i].equals(string[j]) && string[i]!=" ") {
+					count++;
+					string[j]="0";
+				}
+			}
+			if(count>1 && string[i]!="0") {
+				words.add(count+" "+ string[i]);
+			}
+		}
+		for(int i=0;i<words.size();i++) {
+			for(int j=i+1;j<words.size();j++) {
+      //change to ascending ">"
+				if(Character.getNumericValue(words.get(i).charAt(0))<Character.getNumericValue(words.get(j).charAt(0))) {
+					Collections.swap(words, i, j);
+				}
+			}
+		}
+		System.out.println("Occurence - word");
+		for(int i=0;i<words.size();i++) {
+
+			System.out.println(words.get(i));	
+		}
+		
+	}
