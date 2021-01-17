@@ -11,46 +11,46 @@ public static void swap(String[]x) {
 	}
 	
 }
-	public static void main(String[] args) {
-		ArrayList<Integer> results = new ArrayList<Integer>();
-		String []numbers = {"5 ,15, 4,4,2,2,2,2,1,6,7,7,7,asds","asda,,asds,asds,1,4,2,2,7,3,5,15,15"};
-		String str1 = numbers[0];
-		String str2= numbers[1];
+public static void main(String[] args) {
+	ArrayList<Integer> results = new ArrayList<Integer>();
+	String []numbers = {"5 ,15, 4,4,2,2,2,2,1,6,7,7,7,asds","asda,,asds,asds,1,4,2,2,7,3,5,15,15"};
+	String str1 = numbers[0];
+	String str2= numbers[1];
 
-		String numsplit = str1.replaceAll("[^0-9]+", ";");
-		String numsplit1 = str2.replaceAll("[^0-9]+", ";");
-		String []str1A = numsplit.split(";");
-		String []str2A = numsplit1.split(";");
-		swap(str2A);
-		swap(str1A);
-	
-		for(int i=0;i<str1A.length;i++) {
-			for(int j=i+1;j<str1A.length;j++) {
-				if(str1A[i]!=str1A[j]) {
-					
-				}
-			}
-			
-		}
-		for(int i=0;i<str1A.length;i++) {
-			for(int j=0;j<str2A.length;j++) {
-				if(str1A[i].equals(str2A[j]) && str1A[i]!="/") {	
-						results.add(Integer.parseInt(str1A[i]));
-					}
+	String numsplit = str1.replaceAll("[^0-9]+", ";");
+	String numsplit1 = str2.replaceAll("[^0-9]+", ";");
+	String []str1A = numsplit.split(";");
+	String []str2A = numsplit1.split(";");
+	swap(str2A);
+	swap(str1A);
+
+	for(int i=0;i<str1A.length;i++) {
+		for(int j=i+1;j<str1A.length;j++) {
+			if(str1A[i]!=str1A[j]) {
+
 			}
 		}
-		for(int i=0;i<results.size();i++) {
-			for(int j=i+1;j<results.size();j++){
-				//descending "<"
-				if (results.get(i)>results.get(j)) {
-					int temp = results.get(i);
-					results.add(i, results.get(j));
-					results.remove(i+1);
-					results.add(j,temp);
-					results.remove(j+1);
-				}
-				
-			}
-		}
-		System.out.println(results);		
+
 	}
+	for(int i=0;i<str1A.length;i++) {
+		for(int j=0;j<str2A.length;j++) {
+			if(str1A[i].equals(str2A[j]) && str1A[i]!="/") {	
+					results.add(Integer.parseInt(str1A[i]));
+				}
+		}
+	}
+	for(int i=0;i<results.size();i++) {
+		for(int j=i+1;j<results.size();j++){
+			//descending "<"
+			if (results.get(i)>results.get(j)) {
+				int temp = results.get(i);
+				results.add(i, results.get(j));
+				results.remove(i+1);
+				results.add(j,temp);
+				results.remove(j+1);
+			}
+
+		}
+	}
+	System.out.println(results);		
+}
