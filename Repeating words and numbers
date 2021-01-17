@@ -24,7 +24,7 @@
 		}
 		for(int i=0;i<words.size();i++) {
 			for(int j=i+1;j<words.size();j++) {
-      //change to ascending ">"
+				//change to ascending ">"
 				if(Character.getNumericValue(words.get(i).charAt(0))<Character.getNumericValue(words.get(j).charAt(0))) {
 					Collections.swap(words, i, j);
 				}
