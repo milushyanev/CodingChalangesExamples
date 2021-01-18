@@ -1,0 +1,29 @@
+/*
+ Find if a text is a Palindrome or not.
+  */
+public static void main(String[] args) {
+	String randomText = "Able was I, ere I saw Elba.";
+	String lowerCase = randomText.toLowerCase();
+	String sortedText ="";
+	String result = "is a Palindrome";
+	int count;
+	String []getCharOnly=lowerCase.split("\\W+");
+  
+	for(int i=0;i<getCharOnly.length;i++) {
+		sortedText+=getCharOnly[i];
+	}
+  
+	if(sortedText.length()%2!=0) {
+		count=((sortedText.length()+1)/2)-1;
+	}else {
+		count=sortedText.length()/2;
+	}
+  
+  for(int i=0;i<count;i++) {
+    if(sortedText.charAt(i)!=sortedText.charAt((sortedText.length()-1)-i)) {
+      result="is not a Palindrome";
+      break;
+    }
+  }
+  System.out.println("'"+randomText+"'"+"  "+result);
+}
