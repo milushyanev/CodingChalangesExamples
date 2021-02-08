@@ -1,0 +1,36 @@
+public class testing1 {
+
+	   
+//if an user has a crypted password and we know how to find possible solutions by having a lower and upper bound, find the solutions. Everytime
+// the numbers will be incremented by the lowerbound initial number until upperbound is hit. 
+	    public static void main(String[] args){
+	    	int upperBound = 10;
+	    	int lowerBound = 2;
+	    	boolean pass=false;
+	    	
+	    	ArrayList<Integer> code = new ArrayList<>();
+	    	ArrayList<String> display = new ArrayList<>();
+	    	code.add(-2);
+	    	code.add(-1);
+	    	code.add(2);
+	    	for(int i=0;i<code.size();i++) {
+	    		if(lowerBound-code.get(i)>=lowerBound && code.get(i)+lowerBound<=upperBound) {
+	    			for(int j=0;j<code.size();j++) {
+	    				code.set(j, lowerBound-code.get(j));
+	    			}
+	    			display.add(code.toString());
+	    			do {
+	    				for(int k=0;k<code.size();k++) {
+	    					code.set(k, lowerBound+code.get(k));
+	    					if(code.get(k)==upperBound) {
+	    						pass=true;
+	    					}
+	    				}
+	    				display.add(code.toString());
+	    			}while(pass!=true);
+
+	    		}
+	    	}
+	    	System.out.println(display);
+	
+	    }
