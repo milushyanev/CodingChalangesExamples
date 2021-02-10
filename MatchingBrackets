@@ -1,0 +1,25 @@
+	    public static void main(String[] args){
+
+	    	//Find matching brackets and return their count, if not matching return -1
+	    	String brackets =")((()))";
+	    	 int count;
+	    	 int result=0;
+	    	 Deque<Character> stack 
+	            = new ArrayDeque<Character>(); 
+	    	for(int i=0;i<brackets.length();i++) {
+	    		count=0;
+	    		if(brackets.charAt(i)=='(') {
+	    			stack.push(brackets.charAt(i));
+	    			continue;
+	    		}
+	    		if(stack.isEmpty()) {
+	    			result=-1;
+	    			break;
+	    		}
+	    		else if(brackets.charAt(i)==')') {
+	    			stack.pop();
+	    			count++;
+	    			result+=count;
+	    		}
+	    	}System.out.println(result);
+	    }
